@@ -1,0 +1,5 @@
+#if !defined(HAL_OPAMP_MODULE_DISABLED)
+  #define HAL_OPAMP_MODULE_ENABLED
+#else
+  #undef HAL_OPAMP_MODULE_ENABLED
+#endif
