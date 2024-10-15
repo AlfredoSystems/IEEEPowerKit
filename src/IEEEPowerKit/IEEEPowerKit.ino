@@ -3,10 +3,9 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #include <Wire.h>
-#include <Fonts/FreeSans9pt7b.h>
-
 
 AverageValue<float> avgVin(10);
+AverageValue<float> avgV1B(10);
 AverageValue<float> avgCout(10);
 
 Adafruit_SSD1306 display(-1);
@@ -78,7 +77,6 @@ void setup() {
   Wire.setSCL(PA15);
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
   display.clearDisplay();
-  //display.setFont(&FreeSans9pt7b);
   display.setTextSize(1);
   display.setTextColor(WHITE);
   updateDisplay();
@@ -89,6 +87,7 @@ void loop() {
 
 
   avgVin.push(((float)analogRead(PIN_SENSE_VIN) / analogSteps) * maxV * (ohmsVdivHigh + ohmsVdivLow) / ohmsVdivLow);
+  avgV1B.push(((float)analogRead(PIN_SENSE_V_1B) / analogSteps) * maxV * (ohmsVdivHigh + ohmsVdivLow) / ohmsVdivLow);
   avgCout.push(((float)analogRead(PIN_OPOUT_1A)) * (1.3 / 26.0));
 
   //if (millis() % 300 == 0) digitalWrite(PIN_LED_2, LOW);
@@ -109,17 +108,24 @@ void updateDisplay(){
   char OutputCurrent[21];
   char OutputPower[21];
 
+  float maxVin = 0;
+  if(avgVin.average() > avgV1B.average()){
+    maxVin = avgVin.average();
+  } else {
+    maxVin = avgV1B.average();
+  }
+
   float power = 5.0 * avgCout.average();
 
-  strcpy(InputVoltage, "Input Voltage:  "); // Copy the initial part of the message
-  strcat(InputVoltage, String(avgVin.average(), 1).c_str()); // Append the float value as a string
+  strcpy(InputVoltage, "Voltage:        "); // Copy the initial part of the message
+  strcat(InputVoltage, String(maxVin, 1).c_str()); // Append the float value as a string
   strcat(InputVoltage, "V"); // Append the "V" symbol
   
-  strcpy(OutputCurrent, "Output Current: "); // Copy the initial part of the message
+  strcpy(OutputCurrent, "Current:        "); // Copy the initial part of the message
   strcat(OutputCurrent, String(avgCout.average(), 1).c_str()); // Append the float value as a string
   strcat(OutputCurrent, "A"); // Append the "V" symbol
   
-  strcpy(OutputPower, "Output Power:   "); // Copy the initial part of the message
+  strcpy(OutputPower, "Power:          "); // Copy the initial part of the message
   strcat(OutputPower, String(power, 1).c_str()); // Append the float value as a string
   strcat(OutputPower, "W"); // Append the "V" symbol
 
