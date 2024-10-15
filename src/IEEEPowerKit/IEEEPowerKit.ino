@@ -117,22 +117,22 @@ void updateDisplay(){
 
   float power = 5.0 * avgCout.average();
 
-  strcpy(InputVoltage, "Voltage:        "); // Copy the initial part of the message
+  strcpy(InputVoltage, "Voltage:       "); // Copy the initial part of the message
   strcat(InputVoltage, String(maxVin, 1).c_str()); // Append the float value as a string
-  strcat(InputVoltage, "V"); // Append the "V" symbol
+  strcat(InputVoltage, " V"); // Append the "V" symbol
   
-  strcpy(OutputCurrent, "Current:        "); // Copy the initial part of the message
+  strcpy(OutputCurrent, "Current:       "); // Copy the initial part of the message
   strcat(OutputCurrent, String(avgCout.average(), 1).c_str()); // Append the float value as a string
-  strcat(OutputCurrent, "A"); // Append the "V" symbol
+  strcat(OutputCurrent, " A"); // Append the "V" symbol
   
-  strcpy(OutputPower, "Power:          "); // Copy the initial part of the message
+  strcpy(OutputPower, "Power:         "); // Copy the initial part of the message
   strcat(OutputPower, String(power, 1).c_str()); // Append the float value as a string
-  strcat(OutputPower, "W"); // Append the "V" symbol
+  strcat(OutputPower, " W"); // Append the "V" symbol
 
 
   display.clearDisplay();
   display.setCursor(0, 0);
-  writeln("IEEE Charger", 12);
+  writeln("Electrical Readings:", 20);
   writeln(InputVoltage, 20);
   writeln(OutputCurrent, 20);
   writeln(OutputPower, 20);
