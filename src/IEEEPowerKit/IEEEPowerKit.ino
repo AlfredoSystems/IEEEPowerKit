@@ -60,6 +60,7 @@ const int PIN_LED_2 = PC7;
 
 void setup() {
   Serial.begin(115200);
+  pinMode(PIN_LED_1, OUTPUT);
 
   //Phase 1A is GND
   pinMode(PIN_H_1A, OUTPUT);
@@ -83,16 +84,27 @@ void setup() {
 
 }
 
+long millisTimestamp = 0;
+long nextToggleMs = 50;
+bool ledState = false;
+
 void loop() {
-
-
   avgVin.push(((float)analogRead(PIN_SENSE_VIN) / analogSteps) * maxV * (ohmsVdivHigh + ohmsVdivLow) / ohmsVdivLow);
   avgV1B.push(((float)analogRead(PIN_SENSE_V_1B) / analogSteps) * maxV * (ohmsVdivHigh + ohmsVdivLow) / ohmsVdivLow);
   avgCout.push(((float)analogRead(PIN_OPOUT_1A)) * (1.3 / 26.0));
 
-  //if (millis() % 300 == 0) digitalWrite(PIN_LED_2, LOW);
-  //if (millis() % 600 == 0) digitalWrite(PIN_LED_2, HIGH);
-
+  // if (millis() > millisTimestamp + nextToggleMs){
+  //   if(ledState){
+  //     digitalWrite(PIN_LED_1, HIGH);
+  //     ledState = false;
+  //     nextToggleMs = 30;
+  //   }else{
+  //     digitalWrite(PIN_LED_1, LOW);
+  //     ledState = true;
+  //     nextToggleMs = 400;
+  //   }
+  //   millisTimestamp = millis();
+  // }
 
   Serial.print("  Input Voltage: ");
   Serial.print(avgVin.average());
@@ -115,18 +127,23 @@ void updateDisplay(){
     maxVin = avgV1B.average();
   }
 
-  float power = 5.0 * avgCout.average();
+  float chargeCurrent = (maxVin - 9.0) * 0.2 * (3.0/14.0) * 0.5;
+  if (chargeCurrent < 0) chargeCurrent = 0;
 
-  strcpy(InputVoltage, "Voltage:       "); // Copy the initial part of the message
-  strcat(InputVoltage, String(maxVin, 1).c_str()); // Append the float value as a string
+  float power = 5.0 * avgCout.average() + chargeCurrent * maxVin;
+
+  float currentOut = avgCout.average() + chargeCurrent;
+
+  strcpy(InputVoltage, "Voltage:     "); // Copy the initial part of the message
+  strcat(InputVoltage, String(maxVin, 2).c_str()); // Append the float value as a string
   strcat(InputVoltage, " V"); // Append the "V" symbol
   
-  strcpy(OutputCurrent, "Current:       "); // Copy the initial part of the message
-  strcat(OutputCurrent, String(avgCout.average(), 1).c_str()); // Append the float value as a string
+  strcpy(OutputCurrent, "Current:     "); // Copy the initial part of the message
+  strcat(OutputCurrent, String(currentOut, 2).c_str()); // Append the float value as a string
   strcat(OutputCurrent, " A"); // Append the "V" symbol
   
-  strcpy(OutputPower, "Power:         "); // Copy the initial part of the message
-  strcat(OutputPower, String(power, 1).c_str()); // Append the float value as a string
+  strcpy(OutputPower, "Power:       "); // Copy the initial part of the message
+  strcat(OutputPower, String(power, 2).c_str()); // Append the float value as a string
   strcat(OutputPower, " W"); // Append the "V" symbol
 
 
