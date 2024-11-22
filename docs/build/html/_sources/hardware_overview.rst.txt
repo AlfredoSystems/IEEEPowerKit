@@ -1,5 +1,5 @@
 Hardware Overview
-------
+------------------
 
 We're going to start by writing a simple program to test using PestoLink to control any motors or servos connected to your NoU3 via the ESP32's Bluetooth.
 

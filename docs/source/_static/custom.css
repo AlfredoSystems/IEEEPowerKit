@@ -1,0 +1,10 @@
+.image-row-container {
+    display: flex;
+    gap: 10px;  /* Small gap between images */
+    justify-content: center;
+}
+
+.image-row-container img {
+    max-width: 100%;  /* Make sure they don't overflow */
+    object-fit: contain;  /* Preserve aspect ratio */
+}

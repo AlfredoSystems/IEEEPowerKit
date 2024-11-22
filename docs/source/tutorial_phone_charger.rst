@@ -9,6 +9,13 @@ We're going to start by writing a simple program to test using PestoLink to cont
    
 When you open up the Arduino IDE, you'll see an empty program (a "sketch") that looks like this:
 
+.. raw:: html
+
+   <div class="image-row-container">
+       <img src="../images/readings.png" alt="Image 1" height="200px">
+       <img src="../images/thin.png" alt="Image 2" height="200px">
+   </div>
+
 .. code-block:: cpp
 
     void setup() {
