@@ -31,14 +31,31 @@ function resizeImages(container, img1, img2){
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-        // Get all image containers in the document
-        const containers = document.querySelectorAll('.image-container');
-    
-        // Loop over each container and resize images inside it
-        containers.forEach(container => {
-            const images = container.querySelectorAll('img');
-            const image1 = images[0];
-            const image2 = images[1];
-            resizeImages(container, image1, image2);
-        });
+    // Get all image containers in the document
+    const containers = document.querySelectorAll('.image-container');
+
+    containers.forEach(container => {
+        const images = container.querySelectorAll('img');
+        const image1 = images[0];
+        const image2 = images[1];
+
+        if (image1 && image2) {
+            let loadedCount = 0;
+
+            function onImageLoad() {
+                loadedCount++;
+                if (loadedCount === 2) {  // Both images are loaded
+                    resizeImages(container, image1, image2);
+                }
+            }
+
+            // Add load event listeners
+            image1.addEventListener('load', onImageLoad);
+            image2.addEventListener('load', onImageLoad);
+
+            // If the images are already cached, trigger the load handler manually
+            if (image1.complete) onImageLoad();
+            if (image2.complete) onImageLoad();
+        }
+    });
 });
