@@ -1,22 +1,53 @@
 Hardware Overview
-------------------
+==================
 
-We're going to start by writing a simple program to test using PestoLink to control any motors or servos connected to your NoU3 via the ESP32's Bluetooth.
+This is an overview of what comes in the Power Electronics Kit.
 
-.. note:: For this section, you'll at least need Alfredo NoU3 ready to drive some motors. Follow our `Build Tutorial <https://youtu.be/rcdbkeYA1rs>`_ to set that up before continuing here.
-   
-.. seealso:: If you just need an example program to test motor and servo movement without an explanation, use the **motor party** example sketch included with Alfredo-NoU3.
+Electronics
+-----------
 
-.. image:: images/readings.png
+.. raw:: html
 
-When you open up the Arduino IDE, you'll see an empty program (a "sketch") that looks like this:
+    <img src="_static/electronics1.png">
+    <br/><br/>
 
-.. code-block:: cpp
+From left to right:
 
-    void setup() {
+- **Battery:** A 650mAh two-cell Li-ion battery with a nominal voltage of 7.4V. The battery has a 9V standard form factor.
+- **Power Board:** The brain of the Power Kit, managing power flow between devices and controlling the display.
+- **Screwdriver:** Used to tighten or loosen terminals on the Power Board.
+- **Display:** A 64x128 OLED display controlled via I2C.
 
-    }
+.. raw:: html
 
-    void loop() {
+    <img src="_static/electronics2.png">
+    <br/><br/>
 
-    }
+- **Solar Panel:** A 3-watt photovoltaic cell with a nominal output of 14V.
+- **Wireless Charger:** Comprising a power board and coil, it converts DC to AC for wireless power transmission using the QI wireless charging standard.
+
+Plastics
+--------
+
+.. raw:: html
+
+    <img src="_static/plastics.png">
+    <br/><br/>
+
+- The four parts on the left are for the **solar charger**.
+- The four parts on the right are for the **wireless phone charging activity**.
+
+Cables
+------
+
+.. raw:: html
+
+    <img src="_static/cables.png">
+    <br/><br/>
+
+From left to right:
+
+- **Micro-USB Cable:** Used to charge the battery when the solar charger is not an option (e.g., at night).
+- **QWIIC Cable:** Enables easy I2C communication with devices like the OLED Display when plugged into the Power Board.
+- **Battery Cable:** Converts the 9V battery standard into a 5.5mm barrel jack.
+

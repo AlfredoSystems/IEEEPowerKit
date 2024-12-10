@@ -2,7 +2,7 @@ IEEEPowerKit Documentation
 ==========================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    hardware_overview
    tutorial_solar_charger
