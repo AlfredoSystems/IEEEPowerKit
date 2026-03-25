@@ -68,6 +68,12 @@ void setup() {
   pinMode(PIN_L_1A, OUTPUT);
   digitalWrite(PIN_L_1A, HIGH);
 
+ //Phase 1B is Z
+  pinMode(PIN_H_1B, OUTPUT);
+  digitalWrite(PIN_H_1B, LOW);
+  pinMode(PIN_L_1B, OUTPUT);
+  digitalWrite(PIN_L_1B, LOW);
+
   //OPAMP1 init
   MX_OPAMP1_Init();
   HAL_OPAMP_MspInit(&hopamp1);
@@ -108,6 +114,8 @@ void loop() {
 
   Serial.print("  Input Voltage: ");
   Serial.print(avgVin.average());
+  Serial.print("  V1B Voltage: ");
+  Serial.print(avgV1B.average());
   Serial.print("  Output Current: ");
   Serial.print(avgCout.average());
   Serial.println(" ");
@@ -121,18 +129,25 @@ void updateDisplay(){
   char OutputPower[21];
 
   float maxVin = 0;
-  if(avgVin.average() > avgV1B.average()){
+  float power = 0;
+  float currentOut = 0;
+
+  if(avgV1B.average() < 1.0){ //phone charger
     maxVin = avgVin.average();
-  } else {
+    float chargeCurrent = (maxVin - 9.0) * 0.2 * (3.0/14.0) * 0.5;
+    if (chargeCurrent < 0) chargeCurrent = 0;
+
+    power = 5.0 * avgCout.average() + chargeCurrent * maxVin;
+    currentOut = avgCout.average() + chargeCurrent;
+  } else { // solar charger
     maxVin = avgV1B.average();
+
+    currentOut = fmap(maxVin, 0.0, 9.0, 0.0, 1.5/9.0);
+    if (currentOut < 0) currentOut = 0;
+
+    power = currentOut * maxVin;
   }
 
-  float chargeCurrent = (maxVin - 9.0) * 0.2 * (3.0/14.0) * 0.5;
-  if (chargeCurrent < 0) chargeCurrent = 0;
-
-  float power = 5.0 * avgCout.average() + chargeCurrent * maxVin;
-
-  float currentOut = avgCout.average() + chargeCurrent;
 
   strcpy(InputVoltage, "Voltage:     "); // Copy the initial part of the message
   strcat(InputVoltage, String(maxVin, 2).c_str()); // Append the float value as a string
@@ -195,4 +210,8 @@ static void MX_OPAMP1_Init(void) {
   if (HAL_OPAMP_Init(&hopamp1) != HAL_OK) {
     Serial.println("OPAMP1 Init fail!");
   }
+}
+
+float fmap(float x, float in_min, float in_max, float out_min, float out_max) {
+  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
