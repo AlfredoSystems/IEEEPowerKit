@@ -24,16 +24,29 @@ Distributed Power Kits already have the Arduino DFU bootloader installed, so STM
 
 ## Section 2: Flashing a Brand New Board (Factory Fresh)
 
-A factory-fresh board does not have the Arduino bootloader installed. Follow these steps to flash the IEEEPowerKit firmware using STM32CubeProgrammer. You only need to do this once — after this, the board can be programmed over USB from Arduino IDE without STM32CubeProgrammer. Power Kits come with the bootloader installed already! These steps are for internal use only.
+A factory-fresh board does not have the Arduino bootloader installed. Follow these steps to flash the IEEEPowerKit firmware using PlatformIO and dfu-util. You only need to do this once — after this, the board can be programmed over USB from Arduino IDE without these tools. Power Kits come with the bootloader installed already! These steps are for internal use only.
 
-1. Click this [link](https://github.com/AlfredoSystems/IEEEPowerKit/archive/refs/heads/main.zip) to download the latest IEEEPowerKit.bin file, software for the IEEE Power Electronics Kit Board.
-1. Click this [link](https://drive.google.com/file/d/1hDfX-p4nzeYVYNdIkguA9ulwUVvr4Olv/view?usp=drive_link) to download STM32CubeProgrammer.
-1. Install and run STM32CubeProgrammer.
-1. There is a drop down in the top right with four options: ST-LINK, j-link, UART, USB. Select the USB option.
-1. The provided USB cable in the kit has two sides, a USB-A and a USB-C side. Go ahead and plug the USB-C side into the Power Electronics Board.
-1. IMPORTANT: Now you will put the board in "boot mode". To do that, press and hold the boot button while the device has no power. THEN plug the USB-A side into your computer. You can now release the boot button. You will know if it worked if the yellow and green leds are on but dim.
-1. Back in STM32CubeProgrammer, on the right you will see a panel called USB Configuration, hit the port refresh button. STM32CubeProgrammer will find your board at USB1.
-1. Click the CONNECT button in the top right.
-1. Once the device is connected, on the left go to the Erasing and Programming Tab.
-1. Click the Browse button and select the IEEEPowerKit.bin file you just downloaded.
-1. Click Start Programming. After just a second the file will be uploaded to the Power Electronics Board and it will be ready for use.
+### Prerequisites (one-time setup)
+
+1. Install [Python](https://www.python.org/downloads/) if you don't have it.
+2. Install PlatformIO and the STM32 dfu-util tool:
+   ```
+   pip install platformio
+   pio platform install ststm32
+   pio pkg install --global --tool "tool-dfuutil"
+   ```
+3. Install the WinUSB driver for the STM32 bootloader using [Zadig](https://zadig.akeo.ie/):
+   - Download and run Zadig.
+   - Go to **Options → List All Devices**.
+   - Select **STM32 BOOTLOADER** from the dropdown (VID `0483`, PID `DF11`).
+   - Set the driver on the right to **WinUSB** and click **Replace Driver**.
+
+### Flashing
+
+1. Click this [link](https://github.com/AlfredoSystems/IEEEPowerKit/archive/refs/heads/main.zip) to download the latest `IEEEPowerKit2.bin`.
+2. Put the board into DFU boot mode: unplug USB, hold the **BOOT** button, plug USB into your computer, then release **BOOT**. The yellow and green LEDs will glow dim when the board is in boot mode.
+3. Open a terminal in the folder containing `IEEEPowerKit2.bin` and run:
+   ```
+   pio pkg exec --package "tool-dfuutil" -- dfu-util -d 0483:df11 -a 0 -s 0x08000000:leave -D "IEEEPowerKit2.bin"
+   ```
+4. The output will show `Download done. File downloaded successfully` followed by a reset. The board is now flashed and ready to use.
