@@ -56,7 +56,7 @@ This tutorial will guide you through creating a phone charger using the IEEE Pow
     </div>
 
 |
-| Grab the QWIIC wires and display. Attach the wires as pictured above. The color matters!
+| Grab the QWIIC wires and display. Attach the wires as pictured above. The color matters! (NOTE: on newer versions of the kit, the wire colors are different. The new order is BLACK, RED, YELLOW, BLUE. Make sure black goes to GND)
 
 .. raw:: html
 
@@ -103,7 +103,7 @@ This tutorial will guide you through creating a phone charger using the IEEE Pow
     </div>
 
 |
-| Insert the white connector that is from the red wire into the white connector on the board. Grab the black wire and insert it into port A1. The port matters! Use the included screwdriver to tighten the screw.
+| Insert the white connector that is from the red wire into the white connector on the board. Grab the black wire and insert it into port A1. The port matters! Use the included screwdriver to tighten the screw. (NOTE: on newer versions of the kit, the red wire no longer needs the white connector. Plug the red wire into the port labeled 5V instead.)
 
 .. raw:: html
 

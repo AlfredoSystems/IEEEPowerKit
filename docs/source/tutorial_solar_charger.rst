@@ -56,7 +56,7 @@ This tutorial will guide you through creating a solar charging device using your
     </div>
 
 |
-| Grab the Power Electronics Board, the display, and the display cable. Use the picture above to plug the wires in the correct pins. The wire color is important!
+| Grab the QWIIC wires and display. Attach the wires as pictured above. The color matters! (NOTE: on newer versions of the kit, the wire colors are different. The new order is BLACK, RED, YELLOW, BLUE. Make sure black goes to GND)
 
 .. raw:: html
 
