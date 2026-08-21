@@ -14,13 +14,13 @@ Wireless Phone Charger Tutorial
 
 * IEEE Power Electronics Kit
 * IEEE Power Electronics Board
-* Wireless charging coil
-* mini-screwdriver
-* display
-* Dupont wires
-* battery
-* battery cable
-* 3D printed phone holder
+* Wireless Charger
+* Screwdriver
+* OLED Display
+* QWIIC Cable
+* Battery
+* Battery Cable
+* 3D Printed Phone Holder
 
 **Objective**
 
@@ -46,7 +46,7 @@ This tutorial will guide you through creating a phone charger using the IEEE Pow
     </div>
 
 |
-| Grab the back part and clip it into the stand as well.
+| Grab the back part and clip it into the stand.
 
 .. raw:: html
 
@@ -56,7 +56,7 @@ This tutorial will guide you through creating a phone charger using the IEEE Pow
     </div>
 
 |
-| Grab the QWIIC wires and display. Attach the wires as pictured above. The color matters! (NOTE: on newer versions of the kit, the wire colors are different. The new order is BLACK, RED, YELLOW, BLUE. Make sure black goes to GND)
+| Grab the QWIIC Cable and OLED Display. Attach the wires as pictured above. The color matters! BLACK, RED, YELLOW, BLUE. Make sure black goes to GND.
 
 .. raw:: html
 
@@ -66,14 +66,14 @@ This tutorial will guide you through creating a phone charger using the IEEE Pow
     </div>
 
 |
-| Insert the QWIIC wires through the back of the charger and clip it into place.
+| Insert the QWIIC Cable through the back of the charger and clip the OLED Display into place.
 
 .. raw:: html
 
         <img src="_static/PC display 6.png">
 
 |
-| insert the QWIIC wires into the header.
+| insert the QWIIC wires into the Power Electronics Board.
 
 .. raw:: html
 
@@ -93,7 +93,7 @@ This tutorial will guide you through creating a phone charger using the IEEE Pow
     </div>
 
 |
-| Clip the wireless coil board into the back of the charger. Remove the tape from the back of the coil and stick the coil on the front of the charger.
+| Clip the Wireless Charger into the back of the charger. Remove the tape from the back of the coil and stick the coil on the front of the charger.
 
 .. raw:: html
 
@@ -103,7 +103,7 @@ This tutorial will guide you through creating a phone charger using the IEEE Pow
     </div>
 
 |
-| Insert the white connector that is from the red wire into the white connector on the board. Grab the black wire and insert it into port A1. The port matters! Use the included screwdriver to tighten the screw. (NOTE: on newer versions of the kit, the red wire no longer needs the white connector. Plug the red wire into the port labeled 5V instead.)
+| Plug the Red wire into the screw terminal port labled 5V. Plig the black wire into the rightmost screw terminal port. Use the included screwdriver to tighten the screw.
 
 .. raw:: html
 
@@ -113,4 +113,14 @@ This tutorial will guide you through creating a phone charger using the IEEE Pow
     </div>
 
 |
-| Connect the 9V battery to the cable and insert the barrel jack into the INPUT port of the power electronics board. Any phone with Qi charging placed on the stand will begin to charge!
+| Connect the Battery to the Battery Cable and insert the barrel jack into the INPUT port of the power electronics board.
+
+.. raw:: html
+
+    <div class="image-container">
+        <img src="_static/PC charging 1.png">
+        <img src="_static/PC charging 2.png" align="right">
+    </div>
+
+|
+| Once you place a compatible phone on the charger, the light will turn green and the phone will begin to charge! The display will show the battery voltage and current.

@@ -16,7 +16,7 @@ From left to right:
 - **Battery:** A 650mAh two-cell Li-ion battery with a nominal voltage of 7.4V. The battery has a 9V standard form factor.
 - **Power Board:** The brain of the Power Kit, managing power flow between devices and controlling the display.
 - **Screwdriver:** Used to tighten or loosen terminals on the Power Board.
-- **Display:** A 64x128 OLED display controlled via I2C.
+- **OLED Display:** A 64x128 OLED display controlled via I2C.
 
 .. raw:: html
 

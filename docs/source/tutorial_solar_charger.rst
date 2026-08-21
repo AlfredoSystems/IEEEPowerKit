@@ -7,20 +7,19 @@ Solar Battery Charger Tutorial
 ------------------------------------
 
 | Project: IEEE Solar Battery Charger
-| Author: Jacob Williams
 | Printing time requirement: 3 hours
 | Building time requirement: 25 minutes
 
 **Materials**
 
 * IEEE Power Electronics Board
-* Solar panel
-* battery cable
-* li-ion battery
+* Solar Panel
+* battery Cable
+* Battery
 * OLED Display
-* OLED Display cable
-* mini-screwdriver
-* 3D printed enclosure
+* QWIIC cable
+* Screwdriver
+* 3D printed Solar Enclosure
 
 **Objective**
 
@@ -51,19 +50,28 @@ This tutorial will guide you through creating a solar charging device using your
 .. raw:: html
 
     <div class="image-container">
+        <img src="_static/battery charger/film 1.png">
+        <img src="_static/battery charger/film 2.png" align="right">
+    </div>
+
+|
+| Remove the protective film from the solar panel and OLED Display.
+
+.. raw:: html
+
+    <div class="image-container">
         <img src="_static/battery charger/display 1.png">
         <img src="_static/battery charger/display 2.png" align="right">
     </div>
 
 |
-| Grab the QWIIC wires and display. Attach the wires as pictured above. The color matters! (NOTE: on newer versions of the kit, the wire colors are different. The new order is BLACK, RED, YELLOW, BLUE. Make sure black goes to GND)
+| Grab the QWIIC Cable and OLED Display. Attach the wires as pictured above. The color matters! BLACK, RED, YELLOW, BLUE. Make sure black goes to GND.
 
 .. raw:: html
 
-        <img src="_static/PC display 6.png">
+        <img src="_static/battery charger/qwiic wire.png">
 
-|
-| insert the QWIIC wires into the header.
+| insert the QWIIC cable into the header.
 
 .. raw:: html
 
@@ -73,7 +81,7 @@ This tutorial will guide you through creating a solar charging device using your
     </div>
 
 |
-| Next, use the solar panel. Plug the black wire into port 1A, and the RED wire into port 1B. The port matters! Use the screwdriver. to tighten down on the wires.
+| Next, grab the Solar Panel. Plug the black wire into the top port, and the RED wire into the second port. The port matters! Use the screwdriver to tighten the screws down on the wires.
 
 .. raw:: html
 
@@ -83,7 +91,7 @@ This tutorial will guide you through creating a solar charging device using your
     </div>
 
 |
-| Clip the power board into the right side of the enclosure. Clip the display into the left side of the enclosure.
+| Clip the Power Electronics Board into the right side of the enclosure. Clip the OLED Display into the left side of the enclosure.
 
 .. raw:: html
 
@@ -93,7 +101,7 @@ This tutorial will guide you through creating a solar charging device using your
     </div>
 
 |
-| Plug the battery charging cable into the OUTPUT barrel port.
+| Plug the Battery Cable into the OUTPUT barrel port.
 
 .. raw:: html
 
@@ -103,7 +111,7 @@ This tutorial will guide you through creating a solar charging device using your
     </div>
 
 |
-| Insert the solar panel into the enclosure
+| Insert the Solar Panel into the enclosure
 
 .. raw:: html
 
@@ -113,7 +121,7 @@ This tutorial will guide you through creating a solar charging device using your
     </div>
 
 |
-| The final step is to attach the battery to the solar charger. The battery will begin charging, based on how much energy the solar panel is absorbing.
+| The final step is to attach the Battery to the solar charger. The battery will begin charging based on how much energy the solar panel is absorbing.
 
 .. raw:: html
 
