@@ -1,6 +1,6 @@
 .. raw:: html
 
-    <img src="_static/PC phone charger.png">
+    <img src="_static/PC phone charger.webp">
     <br/><br/>
 
 Wireless Phone Charger Tutorial
@@ -31,8 +31,8 @@ This tutorial will guide you through creating a phone charger using the IEEE Pow
 .. raw:: html
 
     <div class="image-container">
-        <img src="_static/PC stand 1.png">
-        <img src="_static/PC stand 2.png" align="right">
+        <img src="_static/PC stand 1.webp">
+        <img src="_static/PC stand 2.webp" align="right">
     </div>
 
 |
@@ -41,8 +41,8 @@ This tutorial will guide you through creating a phone charger using the IEEE Pow
 .. raw:: html
 
     <div class="image-container">
-        <img src="_static/PC stand 3.png">
-        <img src="_static/PC stand 4.png" align="right">
+        <img src="_static/PC stand 3.webp">
+        <img src="_static/PC stand 4.webp" align="right">
     </div>
 
 |
@@ -51,8 +51,8 @@ This tutorial will guide you through creating a phone charger using the IEEE Pow
 .. raw:: html
 
     <div class="image-container">
-        <img src="_static/PC display 1.png">
-        <img src="_static/PC display 2.png" align="right">
+        <img src="_static/PC display 1.webp">
+        <img src="_static/PC display 2.webp" align="right">
     </div>
 
 |
@@ -61,8 +61,8 @@ This tutorial will guide you through creating a phone charger using the IEEE Pow
 .. raw:: html
 
     <div class="image-container">
-        <img src="_static/PC display 3.png">
-        <img src="_static/PC display 4.png" align="right">
+        <img src="_static/PC display 3.webp">
+        <img src="_static/PC display 4.webp" align="right">
     </div>
 
 |
@@ -70,7 +70,7 @@ This tutorial will guide you through creating a phone charger using the IEEE Pow
 
 .. raw:: html
 
-        <img src="_static/PC display 6.png">
+        <img src="_static/PC display 6.webp">
 
 |
 | insert the QWIIC wires into the Power Electronics Board.
@@ -78,8 +78,8 @@ This tutorial will guide you through creating a phone charger using the IEEE Pow
 .. raw:: html
 
     <div class="image-container">
-        <img src="_static/PC power board 1.png">
-        <img src="_static/PC power board 2.png" align="right">
+        <img src="_static/PC power board 1.webp">
+        <img src="_static/PC power board 2.webp" align="right">
     </div>
 
 |
@@ -88,8 +88,8 @@ This tutorial will guide you through creating a phone charger using the IEEE Pow
 .. raw:: html
 
     <div class="image-container">
-        <img src="_static/PC wireless board 1.png">
-        <img src="_static/PC wireless board 2.png" align="right">
+        <img src="_static/PC wireless board 1.webp">
+        <img src="_static/PC wireless board 2.webp" align="right">
     </div>
 
 |
@@ -98,8 +98,8 @@ This tutorial will guide you through creating a phone charger using the IEEE Pow
 .. raw:: html
 
     <div class="image-container">
-        <img src="_static/PC wireless board 3.png">
-        <img src="_static/PC wireless board 4.png" align="right">
+        <img src="_static/PC wireless board 3.webp">
+        <img src="_static/PC wireless board 4.webp" align="right">
     </div>
 
 |
@@ -108,8 +108,8 @@ This tutorial will guide you through creating a phone charger using the IEEE Pow
 .. raw:: html
 
     <div class="image-container">
-        <img src="_static/PC battery 1.png">
-        <img src="_static/PC battery 2.png" align="right">
+        <img src="_static/PC battery 1.webp">
+        <img src="_static/PC battery 2.webp" align="right">
     </div>
 
 |
@@ -118,8 +118,8 @@ This tutorial will guide you through creating a phone charger using the IEEE Pow
 .. raw:: html
 
     <div class="image-container">
-        <img src="_static/PC charging 1.png">
-        <img src="_static/PC charging 2.png" align="right">
+        <img src="_static/PC charging 1.webp">
+        <img src="_static/PC charging 2.webp" align="right">
     </div>
 
 |

@@ -1,6 +1,6 @@
 .. raw:: html
 
-    <img src="_static/battery charger/charger.png">
+    <img src="_static/battery charger/charger.webp">
     <br/><br/>
 
 Solar Battery Charger Tutorial
@@ -30,8 +30,8 @@ This tutorial will guide you through creating a solar charging device using your
 .. raw:: html
 
     <div class="image-container">
-        <img src="_static/battery charger/enclosure 1.png">
-        <img src="_static/battery charger/enclosure 2.png" align="right">
+        <img src="_static/battery charger/enclosure 1.webp">
+        <img src="_static/battery charger/enclosure 2.webp" align="right">
     </div>
 
 |
@@ -40,8 +40,8 @@ This tutorial will guide you through creating a solar charging device using your
 .. raw:: html
 
     <div class="image-container">
-        <img src="_static/battery charger/enclosure 3.png">
-        <img src="_static/battery charger/enclosure 4.png" align="right">
+        <img src="_static/battery charger/enclosure 3.webp">
+        <img src="_static/battery charger/enclosure 4.webp" align="right">
     </div>
 
 |
@@ -50,8 +50,8 @@ This tutorial will guide you through creating a solar charging device using your
 .. raw:: html
 
     <div class="image-container">
-        <img src="_static/battery charger/film 1.png">
-        <img src="_static/battery charger/film 2.png" align="right">
+        <img src="_static/battery charger/film 1.webp">
+        <img src="_static/battery charger/film 2.webp" align="right">
     </div>
 
 |
@@ -60,8 +60,8 @@ This tutorial will guide you through creating a solar charging device using your
 .. raw:: html
 
     <div class="image-container">
-        <img src="_static/battery charger/display 1.png">
-        <img src="_static/battery charger/display 2.png" align="right">
+        <img src="_static/battery charger/display 1.webp">
+        <img src="_static/battery charger/display 2.webp" align="right">
     </div>
 
 |
@@ -69,15 +69,15 @@ This tutorial will guide you through creating a solar charging device using your
 
 .. raw:: html
 
-        <img src="_static/battery charger/qwiic wire.png">
+        <img src="_static/battery charger/qwiic wire.webp">
 
 | insert the QWIIC cable into the header.
 
 .. raw:: html
 
     <div class="image-container">
-        <img src="_static/battery charger/panel 1.png">
-        <img src="_static/battery charger/panel 2.png" align="right">
+        <img src="_static/battery charger/panel 1.webp">
+        <img src="_static/battery charger/panel 2.webp" align="right">
     </div>
 
 |
@@ -86,8 +86,8 @@ This tutorial will guide you through creating a solar charging device using your
 .. raw:: html
 
     <div class="image-container">
-        <img src="_static/battery charger/power board 1.png">
-        <img src="_static/battery charger/power board 2.png" align="right">
+        <img src="_static/battery charger/power board 1.webp">
+        <img src="_static/battery charger/power board 2.webp" align="right">
     </div>
 
 |
@@ -96,8 +96,8 @@ This tutorial will guide you through creating a solar charging device using your
 .. raw:: html
 
     <div class="image-container">
-        <img src="_static/battery charger/battery 1.png">
-        <img src="_static/battery charger/battery 2.png" align="right">
+        <img src="_static/battery charger/battery 1.webp">
+        <img src="_static/battery charger/battery 2.webp" align="right">
     </div>
 
 |
@@ -106,8 +106,8 @@ This tutorial will guide you through creating a solar charging device using your
 .. raw:: html
 
     <div class="image-container">
-        <img src="_static/battery charger/panel 3.png">
-        <img src="_static/battery charger/panel 4.png" align="right">
+        <img src="_static/battery charger/panel 3.webp">
+        <img src="_static/battery charger/panel 4.webp" align="right">
     </div>
 
 |
@@ -116,8 +116,8 @@ This tutorial will guide you through creating a solar charging device using your
 .. raw:: html
 
     <div class="image-container">
-        <img src="_static/battery charger/charging 1.png">
-        <img src="_static/battery charger/charging 2.png" align="right">
+        <img src="_static/battery charger/charging 1.webp">
+        <img src="_static/battery charger/charging 2.webp" align="right">
     </div>
 
 |
@@ -125,4 +125,4 @@ This tutorial will guide you through creating a solar charging device using your
 
 .. raw:: html
 
-    <img src="_static/battery charger/readings.png">
+    <img src="_static/battery charger/readings.webp">

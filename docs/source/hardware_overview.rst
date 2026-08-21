@@ -8,7 +8,7 @@ Electronics
 
 .. raw:: html
 
-    <img src="_static/electronics1.png">
+    <img src="_static/electronics1.webp">
     <br/><br/>
 
 From left to right:
@@ -20,7 +20,7 @@ From left to right:
 
 .. raw:: html
 
-    <img src="_static/electronics2.png">
+    <img src="_static/electronics2.webp">
     <br/><br/>
 
 - **Solar Panel:** A 3-watt photovoltaic cell with a nominal output of 14V.
@@ -31,7 +31,7 @@ Plastics
 
 .. raw:: html
 
-    <img src="_static/plastics.png">
+    <img src="_static/plastics.webp">
     <br/><br/>
 
 - The four parts on the left are for the **solar charger**.
@@ -42,7 +42,7 @@ Cables
 
 .. raw:: html
 
-    <img src="_static/cables.png">
+    <img src="_static/cables.webp">
     <br/><br/>
 
 From left to right:
