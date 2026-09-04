@@ -10,9 +10,24 @@ param([string]$Bin = "IEEEPowerKit.bin")
 $Bin = Join-Path $PSScriptRoot $Bin
 if (-not (Test-Path $Bin)) { Write-Error "Not found: $Bin"; exit 1 }
 
+# Use a dfu-util.exe sitting next to this script if there is one (portable/shared
+# setup - no PlatformIO needed); otherwise fall back to PlatformIO's copy.
+$LocalDfu = @("dfu-util.exe", "dfu-util-static.exe") |
+    ForEach-Object { Join-Path $PSScriptRoot $_ } | Where-Object { Test-Path $_ } | Select-Object -First 1
+
+function Invoke-DfuUtil {
+    if ($LocalDfu) { & $LocalDfu @args 2>&1 | Out-String }
+    else { pio pkg exec --package tool-dfuutil -- dfu-util @args 2>&1 | Out-String }
+}
+
+if (-not $LocalDfu -and -not (Get-Command pio -ErrorAction SilentlyContinue)) {
+    Write-Error "Neither dfu-util.exe next to this script nor PlatformIO (pio) found. Put dfu-util.exe in this folder or install PlatformIO."
+    exit 1
+}
+
 # Returns serial numbers of all STM32 DFU devices currently attached
 function DfuSerials {
-    $out = pio pkg exec --package tool-dfuutil -- dfu-util -l 2>&1 | Out-String
+    $out = Invoke-DfuUtil -l
     $serials = @()
     foreach ($m in [regex]::Matches($out, '\[0483:df11\].*?alt=0.*?serial="([^"]+)"')) {
         $serials += $m.Groups[1].Value
@@ -35,7 +50,7 @@ while ($true) {
 
     foreach ($serial in $todo) {
         Write-Host "`nBoard $serial found, flashing..." -ForegroundColor Cyan
-        $out = pio pkg exec --package tool-dfuutil -- dfu-util -d 0483:df11 -S $serial -a 0 -s 0x08000000:leave -D "$Bin" 2>&1 | Out-String
+        $out = Invoke-DfuUtil -d 0483:df11 -S $serial -a 0 -s 0x08000000:leave -D "$Bin"
         $done[$serial] = $true
         # STM32 resets on ":leave" before dfu-util can poll status, so it exits 74 with
         # "Error during download get_status" even on success. Trust the download message.

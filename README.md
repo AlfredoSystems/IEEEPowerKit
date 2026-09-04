@@ -50,3 +50,44 @@ A factory-fresh board does not have the Arduino bootloader installed. Follow the
    pio pkg exec --package "tool-dfuutil" -- dfu-util -d 0483:df11 -a 0 -s 0x08000000:leave -D "IEEEPowerKit2.bin"
    ```
 4. The output will show `Download done. File downloaded successfully` followed by a reset. The board is now flashed and ready to use.
+
+---
+
+## Section 3: Batch Flashing (Production)
+
+For flashing many boards in a row, use the flash-loop scripts in the repo root. They wait for a board in DFU mode, flash it, report OK/FAILED, and wait for the next one — you just cycle boards. Multiple boards can be plugged in at once; each is identified and flashed by its serial number.
+
+Both scripts flash `IEEEPowerKit.bin` by default; pass a different `.bin` as the first argument.
+
+### Windows
+
+Complete the one-time setup from Section 2 (PlatformIO + Zadig driver), then run:
+
+```
+powershell -ExecutionPolicy Bypass -File .\flash-loop.ps1
+```
+
+Alternatively, place a standalone `dfu-util.exe` next to the script (PlatformIO ships one at `~/.platformio/packages/tool-dfuutil/bin/dfu-util-static.exe`) and only the Zadig driver step is needed — handy for machines without Python/PlatformIO.
+
+### Linux (or Git Bash on Windows)
+
+Install dfu-util from your package manager (`sudo apt install dfu-util` / `sudo dnf install dfu-util`), then run:
+
+```
+bash flash-loop.sh
+```
+
+Either run it with `sudo`, or set up USB permissions once so sudo isn't needed:
+
+```
+echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="df11", MODE="0666"' | sudo tee /etc/udev/rules.d/99-stm32-dfu.rules
+sudo udevadm control --reload-rules && sudo udevadm trigger
+```
+
+On Windows, run it from Git Bash (not WSL — WSL can't see USB devices) with a `dfu-util.exe` next to the script.
+
+### Notes
+
+- For each board: hold **BOOT**, plug in USB, release **BOOT**. Dim yellow and green LEDs mean it's in DFU mode. Unplug after the script reports `OK`.
+- dfu-util may print `Error during download get_status` at the end — this is normal. The board resets as soon as flashing finishes, before dfu-util can poll it. The scripts already treat this as success.
+- If the script sits at "Waiting for boards..." with a board plugged in, check the cable first — many micro-USB cables are charge-only. Verify the OS sees the board with `lsusb | grep 0483` (Linux) or `dfu-util -l` before blaming anything else.
